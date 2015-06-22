@@ -108,20 +108,48 @@
         <td>Advanced Operating Systems</td>
     </tr>
     <tr>
-        <td>Core</td>
-        <td>CS</td>
-        <td>6505</td>
-        <td>Computability, Algorithms, and Complexity</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     
-        <td>Core</td>
+        <td>Elective</td>
         <td>CS</td>
-        <td>6505</td>
-        <td>Computability, Algorithms, and Complexity</td>
+        <td>6035</td>
+        <td>Introduction to Information Security</td>
         
-         <td>Core</td>
+        <td>Elective</td>
         <td>CS</td>
-        <td>6505</td>
-        <td>Computability, Algorithms, and Complexity</td>
+        <td>6035</td>
+        <td>Introduction to Information Security</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    
+        <td>General</td>
+        <td>CS</td>
+        <td>7637</td>
+        <td>Knowledge-Based AI</td>
+        
+        <td>General</td>
+        <td>CS</td>
+        <td>7637</td>
+        <td>Knowledge-Based AI</td>
     </tr>
   </tbody>
 </table> 
