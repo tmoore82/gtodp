@@ -96,7 +96,7 @@
             <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
         </div>
         <header><h2>Special Electives (6 hrs Needed)</h2></header>
-        <div  class="card" style="background-color: #000000; color: #FFFFFF">
+        <div  class="card" style="background-color:  #F4931F; color: #FFFFFF">
             <h3>CS 6310 Software Architecture and Design</h3>
             <p>Course info</p>
             <span><input type="checkbox" name="count" checked />Specialization</span>
@@ -125,6 +125,12 @@
         </div>
         <h2>The remaining terms are past the selected graduation deadline</h2>
         <h3>Spring 2016</h3>
+        <div  class="card">
+            <h3><input type="checkbox" name="course" /> CS 6475 Computational Photography</h3>
+            <p>Course info</p>
+            <span>General Elective</span>
+            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+        </div>
         <div  class="card" style="background-color: #EBD69D">
             <h3><input type="checkbox" name="course" /> CS 6210 Advanced Operating Systems</h3>
             <p>Course info</p>
@@ -140,7 +146,7 @@
     </div>
     <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
         <h3>Courses Needed (Not Yet Availalbe)</h3>
-        <div  class="card" style="background-color: #000000; color: #FFFFFF">
+        <div  class="card" style="background-color:  #F4931F; color: #FFFFFF">
             <h3><input type="checkbox" name="course" />CS 6262 Network Security</h3>
             <p>Course Info</p>
             <span>Unplanned</span>
@@ -159,8 +165,8 @@
             <td style="background-color:  #EBD69D;">6 hrs needed</td>
         </tr>
         <tr>
-            <td style="background-color: #000000; color: #FFFFFF">Special Electives</td>
-            <td style="background-color: #000000; color: #FFFFFF">6 hrs needed</td>
+            <td style="background-color:  #F4931F; color: #FFFFFF">Special Electives</td>
+            <td style="background-color:  #F4931F; color: #FFFFFF">6 hrs needed</td>
         </tr>
         <tr>
             <td>General Electives</td>
