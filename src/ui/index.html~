@@ -48,6 +48,11 @@
 	    select {
 		    width: 200px;
 	    }
+	    span {
+	        display: inline-block;
+	        width: 100px;
+	        padding: 5px;
+	    }
 	</style>
 </head>
 
@@ -57,102 +62,85 @@
 
 <h2>Select a specialization:
     <select id="selectmenu">
-	    <option>Computing Systems</option>
+	    <option></option>
+	    <option selected>Computing Systems</option>
 	    <option>Interactive Intelligence</option>
 	    <option>Machine Learning</option>
 	    <option>High-Performance Computing</option>
 	    <option>Computational Perception and Robotics</option>
     </select>
 </h2>
+<h2>Select the term you plan to graduate:
+    <select id="selectmenu">
+        <option></option>        
+	    <option selected>Fall 2015</option>
+	    <option>Spring 2016</option>
+	    <option>Summer 2016</option>
+	    <option>Fall 2016</option>
+	    <option>Later</option>
+    </select>
+</h2>
 
-<table style="width:100%">
-  <thead>
-    <tr>
-        <th align="left" colspan=4>Classes Passed</th>
-        <th align="left" colspan=4>Fall 2015</th>
-        <th align="left" colspan=4>Spring 2015</th>
-        <th aligh="left" colspan=4>...</th>
-    </tr>
-    <tr>
-        <th align="left">Requirement</th>
-        <th align="left">Subject</th>
-        <th align="left">Number</th>
-        <th align="left">Name</th>
-        
-        <th align="left">Requirement</th>
-        <th align="left">Subject</th>
-        <th align="left">Number</th>
-        <th align="left">Name</th>
-        
-        <th align="left">Requirement</th>
-        <th align="left">Subject</th>
-        <th align="left">Number</th>
-        <th align="left">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>Core</td>
-        <td>CS</td>
-        <td>6505</td>
-        <td>Computability, Algorithms, and Complexity</td>
-    
-        <td>Core</td>
-        <td>CS</td>
-        <td>6210</td>
-        <td>Advanced Operating Systems</td>
-        
-        <td>Core</td>
-        <td>CS</td>
-        <td>6210</td>
-        <td>Advanced Operating Systems</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    
-        <td>Elective</td>
-        <td>CS</td>
-        <td>6035</td>
-        <td>Introduction to Information Security</td>
-        
-        <td>Elective</td>
-        <td>CS</td>
-        <td>6035</td>
-        <td>Introduction to Information Security</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    
-        <td>General</td>
-        <td>CS</td>
-        <td>7637</td>
-        <td>Knowledge-Based AI</td>
-        
-        <td>General</td>
-        <td>CS</td>
-        <td>7637</td>
-        <td>Knowledge-Based AI</td>
-    </tr>
-  </tbody>
-</table> 
+<div style="width: 1500px">
+    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
+        <h3>Courses Passed</h3>
+        <article>
+            <header><h2>Electives</h2></header>
+            <div style="background-color: #F0D048">
+                <h2>CS 6310 Software Architecture and Design</h2>
+                <p>Course info</p>
+                <span><input type="checkbox" name="count" checked />Specialization</span>
+                <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+            </div>
+        </article>
+        <article>
+        <header><h2>Core 1</h2></header>
+        </article>
+    </div>
+    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
+        <h3>Fall 2015</h3>
+        <div style="background-color: #F0D048">
+            <h3><input type="checkbox" name="course" /> CS 6210 Advanced Operating Systems</h3>
+            <p>Course info</p>
+            <span><input type="checkbox" name="count" />Specialization</span>
+            <span><b>Last term available before deadline</b></span>
+            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+        </div>
+        <div style="background-color: #F0D048">
+            <h3><input type="checkbox" name="course" /> CS 6475 Computational Photography</h3>
+            <p>Course info</p>
+            <span>General Elective</span>
+            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+        </div>
+        <h2>The remaining terms are past the selected graduation deadline</h2>
+        <h3>Spring 2016</h3>
+        <div style="background-color: #F0D048">
+            <h3><input type="checkbox" name="course" /> CS 6210 Advanced Operating Systems</h3>
+            <p>Course info</p>
+            <span><input type="checkbox" name="count" />Specialization</span>
+            <span><b>Last term available before deadline</b></span>
+            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+        </div>
+        <div style="background-color: #F0D048">
+            <h3><input type="checkbox" name="course" /> CS 6475 Computational Photography</h3>
+            <p>Course info</p>
+            <span>General Elective</span>
+            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
+        </div>
+    </div>
+    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
+        <h3>Courses Needed (Not Yet Availalbe)</h3>
+        <div style="background-color: #F0D048">
+            <h3><input type="checkbox" name="course" />CS 7540 Spectral Algorithms</h3>
+            <p>Course Info</p>
+            <span>Unplanned</span>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both">
+    Grid containing all available classes in program...
+</div>
 
 </body>
 
