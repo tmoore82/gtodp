@@ -6,10 +6,28 @@
     <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
     <script src="jquery/jquery-2.1.4.js"></script>
     <script src="jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+			function toggle_visibility(id, tag) {
+			   var e = document.getElementById(id);
+			   if(e.style.display == 'block') {
+				  e.style.display = 'none';
+				  $('#' + tag).html('&#9654;');
+				}
+			   else {
+				  e.style.display = 'block';
+				  $('#' + tag).html('&#9660;');
+				}
+			}
+		</script>
     <style>
+	    a {
+	    	text-decoration: none;
+	    }
 	    body {
 		    font: 62.5% "Trebuchet MS", sans-serif;
 		    margin: 50px;
+		    /* color: ; */
+		    /* background-color: ; */
 	    }
 	    .demoHeaders {
 		    margin-top: 2em;
@@ -50,11 +68,71 @@
 	    }
 	    span {
 	        display: inline-block;
-	        width: 100px;
 	        padding: 5px;
 	    }
+        .reqGrid {
+        	float: left; 
+        	width: 600px; 
+        	padding: 5px; 
+        	overflow-y: hidden; 
+        	height: 600px; 
+        	border: 1px solid;
+        }
+        .reqColumn {
+        	float: left; 
+        	width: 400px; 
+        	padding: 5px; 
+        	overflow-y: hidden; 
+        	height: 600px;
+        }
+        .toggler {
+        	float: left; 
+        	border: 1px solid; 
+        	margin-bottom: 5px;
+        }
+        .semester {
+        	float: left; 
+        	border: 1px solid; 
+        	margin-bottom: 5px;
+        	font-weight: bold
+        }
         .card {
-            border: 2px solid;
+        	border: 1px solid; 
+        	clear: both; 
+        	padding-left: 10px;
+        	padding-bottom: 2.5px;
+        	margin-bottom: 2.5px;
+        }
+        .cardToggler {
+        	float: left; 
+        	height: 20px; 
+        	border: 1px solid; 
+        	margin-bottom: 5px;
+        }
+        .courseName {
+        	float: left; 
+        	height: 20px; 
+        	border: 1px solid; 
+        	margin-bottom: 5px; 
+        	font-weight: bold; 
+        	font-size: 1.1em
+        }
+        .sticker {
+        	float: right; 
+        	border: 1px solid; 
+        	height: 20px; 
+        	width: 20px; 
+        	text-align: center; 
+        	line-height: 20px;"
+        }
+        .sticker.need {
+        	background-color: #CC0000
+        }
+        .sticker.planned {
+        	background-color: #E6C200
+        }
+        .sticker.passed {
+        	background-color: #E6C200
         }
 	</style>
 </head>
@@ -85,111 +163,40 @@
     </select>
 </h2>
 
-<div style="width: 1500px">
-    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">        
-
-        <h3>Single Option (Needed)</h3>
-
-        <h2 style="background-color: #F0D048;">Core 1 (3 hrs needed)</h2>
-        <div class="card" style="background-color:  #D8D8D8; border-left: 5px solid #F0D048">
-            <h3>CS 6505 Computability, Algorithms, and Complexity</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" checked/>Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>        
+<div style="width: 10000px">
+    <div class="reqColumn">        
+    
+        <h3>Requirements</h3>
         
-        <h3>Courses Passed</h3>
-        <h2  style="background-color: #F0D048">Core 1 (3 hrs Needed)</h2>
+        <h2>Core 1 (3 hrs Needed)</h2>
         
-        <h2  style="background-color: #EBD69D">Core 2 (6 hrs Needed)</h2>
+        <h2>Core 2 (6 hrs Needed)</h2>
         
-        <h2  style="background-color: #FFFFFF">Special Electives (12 hrs Needed)</h2>
-        
-        <div  class="card" style="background-color: #585858; color: #FFFFFF">
-            <h3>CS 6310 Software Architecture and Design</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" checked />Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548" style="color: #FFFFFF">Unofficial survey</a></span>
-        </div>
+        <h2>Special Electives (12 hrs Needed)</h2>
         
         <h2>General Electives (15 hrs Needed)</h2>
     </div>
 
 
-    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
-        <h3>Fall 2015</h3>
-        <div class="card" style="background-color: #F0D048">
-            <h3><input type="checkbox" name="course" />CS 6505 Computability, Algorithms, and Complexity</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" checked/>Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>
-        <div  class="card" style="background-color: #EBD69D">
-            <h3><input type="checkbox" name="course" /> CS 6210 Advanced Operating Systems</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" />Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>          
-        <div  class="card">
-            <h3><input type="checkbox" name="course" /> CS 6475 Computational Photography</h3>
-            <p>Course info</p>
-            <span>General Elective</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>
-        <h2>The remaining terms are past the selected graduation deadline</h2>
-        <h3>Spring 2016</h3>
-        <div class="card" style="background-color: #F0D048">
-            <h3><input type="checkbox" name="course" />CS 6505 Computability, Algorithms, and Complexity</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" checked/>Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>
-        <div  class="card" style="background-color: #EBD69D">
-            <h3><input type="checkbox" name="course" /> CS 6210 Advanced Operating Systems</h3>
-            <p>Course info</p>
-            <span><input type="checkbox" name="count" />Specialization</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>        
-        <div  class="card">
-            <h3><input type="checkbox" name="course" /> CS 6475 Computational Photography</h3>
-            <p>Course info</p>
-            <span>General Elective</span>
-            <span><a href="https://docs.google.com/spreadsheets/d/1zJp3Bu2Rb4DRpHLYL2r4nZ210Y2u8eFY7xgQxO4mq7o/edit#gid=1895892548">Unofficial survey</a></span>
-        </div>
-    </div>
-    <div style="float: left; width: 400px; padding: 5px; overflow-y:scroll; height: 600px;">
-        <h3>Courses Needed (Not Yet Availalbe)</h3>
-        <div  class="card" style="background-color: #585858; color: #FFFFFF">
-            <h3>CS 6262 Network Security</h3>
-            <p>Course Info</p>
-            <span>Unplanned</span>
-        </div>
-    </div>
-</div>
+    <div class="reqGrid">
+        <div>
+		    <span class="toggler"><a id="fTag" href="#" onclick="toggle_visibility('fall2015','fTag');">&#9660;</a></span><span style="semester">Fall 2015</span>
+			<div id="fall2015">
+				<div class="card">
+					<span class="cardToggler"><a id="aTag" href="#" onclick="toggle_visibility('foo', 'aTag');">&#9660;</a></span>
+					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
+					<span class="sticker need">C1</span>
+				   	<div id="foo" style="clear: both; border: 1px solid">Course Info</div>
+				</div>
 
-<div style="clear:both">
-    <table>
-        <tr>
-            <td style="background-color: #F0D048;">Core 1</td>
-            <td style="background-color: #F0D048;">3 hrs needed</td>
-        </tr>
-        <tr>
-            <td style="background-color:  #EBD69D;">Core 2</td>
-            <td style="background-color:  #EBD69D;">6 hrs needed</td>
-        </tr>
-        <tr>
-            <td style="background-color: #585858; color: #FFFFFF">Special Electives</td>
-            <td style="background-color: #585858; color: #FFFFFF">6 hrs needed</td>
-        </tr>
-        <tr>
-            <td>General Electives</td>
-            <td>15 hrs needed</td>
-        </tr>
-    </table>
-</div>
-<br />
-<div style="clear: both">
-    Grid containing all available classes in program...
+				<div style="clear: both;"></div>
+		    </div>
+	    </div>
+	    <div style="clear: both">
+			<h2>The remaining terms are past the selected graduation deadline</h2>
+		</div>
+        <h3>Spring 2016</h3>
+    </div>
 </div>
 
 </body>
