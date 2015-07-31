@@ -7,7 +7,7 @@
     <script src="jquery/jquery-2.1.4.js"></script>
     <script src="jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript">
-			function toggle_visibility(id, tag) {
+			function toggle_visibility(tag, id) {
 			   var e = document.getElementById(id);
 			   if(e.style.display == 'block') {
 				  e.style.display = 'none';
@@ -22,12 +22,11 @@
     <style>
 	    a {
 	    	text-decoration: none;
+	    	cursor: pointer;
 	    }
 	    body {
 		    font: 62.5% "Trebuchet MS", sans-serif;
 		    margin: 50px;
-		    /* color: ; */
-		    /* background-color: ; */
 	    }
 	    .demoHeaders {
 		    margin-top: 2em;
@@ -67,23 +66,23 @@
 		    width: 200px;
 	    }
 	    span {
-	        display: inline-block;
-	        padding: 5px;
+	    	padding: 5px;
 	    }
-        .reqGrid {
+        .courseOffering {
         	float: left; 
-        	width: 600px; 
+        	width: 500px; 
         	padding: 5px; 
-        	overflow-y: hidden; 
+        	overflow-y: auto; 
         	height: 600px; 
         	border: 1px solid;
         }
         .reqColumn {
         	float: left; 
-        	width: 400px; 
+        	width: 500px; 
         	padding: 5px; 
-        	overflow-y: hidden; 
+        	overflow-y: auto; 
         	height: 600px;
+        	border: 1px solid;
         }
         .toggler {
         	float: left; 
@@ -94,7 +93,8 @@
         	float: left; 
         	border: 1px solid; 
         	margin-bottom: 5px;
-        	font-weight: bold
+        	font-size: 1em;
+        	font-weight: bold;
         }
         .card {
         	border: 1px solid; 
@@ -102,6 +102,10 @@
         	padding-left: 10px;
         	padding-bottom: 2.5px;
         	margin-bottom: 2.5px;
+        	background-color: #A6A6A6;
+        }
+        .card:hover {
+        	background-color: #DBDBDB;
         }
         .cardToggler {
         	float: left; 
@@ -134,6 +138,13 @@
         .sticker.passed {
         	background-color: #008000
         }
+        .courseInfo {
+        	clear: both; 
+        	border: 1px solid
+        }
+        .clear {
+        	clear: both;
+        }
 	</style>
 </head>
 
@@ -141,8 +152,19 @@
 
 <h1>The Unoffical OMSCS Degree Planner</h1>
 
+<h2>Select a scenario:
+    <select id="0">
+	    <option></option>
+	    <option selected>A</option>
+	    <option>B</option>
+	    <option>C</option>
+	    <option>D</option>
+	    <option>...</option>
+    </select>
+</h2>
+
 <h2>Select a specialization:
-    <select id="selectmenu">
+    <select id="1">
 	    <option></option>
 	    <option selected>Computing Systems</option>
 	    <option>Interactive Intelligence</option>
@@ -153,7 +175,7 @@
 </h2>
 
 <h2>Select the term you plan to graduate:
-    <select id="selectmenu">
+    <select id="2">
         <option></option>        
 	    <option selected>Fall 2015</option>
 	    <option>Spring 2016</option>
@@ -168,34 +190,764 @@
     
         <h3>Requirements</h3>
         
-        <h2>Core 1 (3 hrs Needed)</h2>
-        
-        <h2>Core 2 (6 hrs Needed)</h2>
-        
-        <h2>Special Electives (12 hrs Needed)</h2>
-        
-        <h2>General Electives (15 hrs Needed)</h2>
+        <div>
+		    <span class="toggler"><a id="3" onclick="toggle_visibility('3','4');">&#9660;</a></span>
+		    <span class="semester">Core 1 (0/3 hrs)</span>
+			<div id="4">
+				<div class="card">
+					<span class="cardToggler"><a id="5" onclick="toggle_visibility('5','6');">&#9660;</a></span>
+					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
+					<span class="sticker need">C1</span>
+					<div class="clear"></div>
+				   	<div id="6" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+		    <div class="clear"></div>
+	    </div>
+	    <div class="clear"></div>
+	    <div>
+		    <span class="toggler"><a id="7" onclick="toggle_visibility('7','8');">&#9660;</a></span>
+		    <span class="semester">Core 2 (0/6 hrs)</span>
+			<div id="8">
+				<div class="card">
+					<span class="cardToggler"><a id="9" onclick="toggle_visibility('9','10');">&#9660;</a></span>
+					<span class="courseName">CS 6210 Advanced Operating Systems</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="10" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="11" onclick="toggle_visibility('11','12');">&#9660;</a></span>
+					<span class="courseName">CS 6241 Compiler Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="12" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="13" onclick="toggle_visibility('13','14');">&#9660;</a></span>
+					<span class="courseName">CS 6250 Computer Networks</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="14" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="15" onclick="toggle_visibility('15','16');">&#9660;</a></span>
+					<span class="courseName">CS 6290 High-Performance Computer Architecture</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="16" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="17" onclick="toggle_visibility('17','18');">&#9660;</a></span>
+					<span class="courseName">CS 6300 Software Development Process</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="18" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="19" onclick="toggle_visibility('19','20');">&#9660;</a></span>
+					<span class="courseName">CS 6400 Database Systems Concepts and Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="20" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+		    <div class="clear"></div>
+	    </div>
+        <div>
+		    <span class="toggler"><a id="21" onclick="toggle_visibility('21','22');">&#9660;</a></span>
+		    <span class="semester">Special Electives (3/9 hrs)</span>
+			<div id="22">
+				<div class="card">
+					<span class="cardToggler"><a id="23" onclick="toggle_visibility('23','24');">&#9660;</a></span>
+					<span class="courseName">CS 6035 Introduction to Information Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="24" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="25" onclick="toggle_visibility('25','26');">&#9660;</a></span>
+					<span class="courseName">CS 6235 Real Time Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="26" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="27" onclick="toggle_visibility('27','28');">&#9660;</a></span>
+					<span class="courseName"> CS 6238 Secure Computer Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="28" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="29" onclick="toggle_visibility('29','30');">&#9660;</a></span>
+					<span class="courseName">CS 6260 Applied Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="30" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="31" onclick="toggle_visibility('31','32');">&#9660;</a></span>
+					<span class="courseName">CS 6262 Network Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="32" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="33" onclick="toggle_visibility('33','34');">&#9660;</a></span>
+					<span class="courseName">CS 6310 Software Architecture and Design</span>
+					<span class="sticker passed">SE</span>
+					<div class="clear"></div>
+				   	<div id="34" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="35" onclick="toggle_visibility('35','36');">&#9660;</a></span>
+					<span class="courseName">CS 6340 Software Analysis and Testing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="36" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="37" onclick="toggle_visibility('37','38');">&#9660;</a></span>
+					<span class="courseName">CS 6365 Introduction to Enterprise Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="38" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="39" onclick="toggle_visibility('39','40');">&#9660;</a></span>
+					<span class="courseName">CS 6422 Database System Implementation</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="40" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="41" onclick="toggle_visibility('41','42');">&#9660;</a></span>
+					<span class="courseName">CS 6550 Design and Analysis of Algorithms</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="42" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="43" onclick="toggle_visibility('43','44');">&#9660;</a></span>
+					<span class="courseName">CS 6675 Advanced Internet Computing Systems and Applications</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="44" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="45" onclick="toggle_visibility('45','46');">&#9660;</a></span>
+					<span class="courseName">CS 7210 Distributed Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="46" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="47" onclick="toggle_visibility('47','48');">&#9660;</a></span>
+					<span class="courseName">CS 7260 Internetworking Architectures and Protocols</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="48" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="49" onclick="toggle_visibility('49','50');">&#9660;</a></span>
+					<span class="courseName">CS 7270 Networked Applications and Services</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="50" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="51" onclick="toggle_visibility('51','52');">&#9660;</a></span>
+					<span class="courseName">CS 7290 Advanced Topics in Microarchitecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="52" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="53" onclick="toggle_visibility('53','54');">&#9660;</a></span>
+					<span class="courseName">CS 7292 Reliability and Security in Computer Architecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="54" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="55" onclick="toggle_visibility('55','56');">&#9660;</a></span>
+					<span class="courseName">CS 7560 Theory of Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="56" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="57" onclick="toggle_visibility('57','58');">&#9660;</a></span>
+					<span class="courseName">CS 8803-FPL Special Topics: Foundations of Programming Languages</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="58" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+		    <div class="clear"></div>
+	    </div>
+        <div>
+		    <span class="toggler"><a id="59" onclick="toggle_visibility('59','60');">&#9660;</a></span>
+		    <span class="semester">General Electives (3/15 hrs)</span>
+			<div id="60">
+				<div class="card">
+					<span class="cardToggler"><a id="57" onclick="toggle_visibility('57','58');">&#9660;</a></span>
+					<span class="courseName">CS 8803 Introduction to Operating Systems</span>
+					<span class="sticker passed">GE</span>
+					<div class="clear"></div>
+				   	<div id="58" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+		    <div class="clear"></div>
+	    </div>
     </div>
 
 
-    <div class="reqGrid">
+    <div class="courseOffering">
+    	<h3>Course Offerings By Semester</h3>
         <div>
-		    <span class="toggler"><a id="fTag" href="#" onclick="toggle_visibility('fall2015','fTag');">&#9660;</a></span><span style="semester">Fall 2015</span>
-			<div id="fall2015">
+		    <span class="toggler"><a id="61" onclick="toggle_visibility('61','62');">&#9660;</a></span>
+		    <span class="semester">Fall 2015</span>
+			<div id="62">
 				<div class="card">
-					<span class="cardToggler"><a id="aTag" href="#" onclick="toggle_visibility('foo', 'aTag');">&#9660;</a></span>
+					<span class="cardToggler"><a id="63" onclick="toggle_visibility('63', '64');">&#9660;</a></span>
 					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
 					<span class="sticker need">C1</span>
-				   	<div id="foo" style="clear: both; border: 1px solid">Course Info</div>
+					<div class="clear"></div>
+				   	<div id="64" class="courseInfo">Course Info</div>
 				</div>
-
-				<div style="clear: both;"></div>
+				<div class="card">
+					<span class="cardToggler"><a id="9" onclick="toggle_visibility('9','10');">&#9660;</a></span>
+					<span class="courseName">CS 6210 Advanced Operating Systems</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="10" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="11" onclick="toggle_visibility('11','12');">&#9660;</a></span>
+					<span class="courseName">CS 6241 Compiler Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="12" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="13" onclick="toggle_visibility('13','14');">&#9660;</a></span>
+					<span class="courseName">CS 6250 Computer Networks</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="14" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="15" onclick="toggle_visibility('15','16');">&#9660;</a></span>
+					<span class="courseName">CS 6290 High-Performance Computer Architecture</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="16" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="17" onclick="toggle_visibility('17','18');">&#9660;</a></span>
+					<span class="courseName">CS 6300 Software Development Process</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="18" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="19" onclick="toggle_visibility('19','20');">&#9660;</a></span>
+					<span class="courseName">CS 6400 Database Systems Concepts and Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="20" class="courseInfo">Course Info</div>
+				</div>
+								<div class="card">
+					<span class="cardToggler"><a id="23" onclick="toggle_visibility('23','24');">&#9660;</a></span>
+					<span class="courseName">CS 6035 Introduction to Information Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="24" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="25" onclick="toggle_visibility('25','26');">&#9660;</a></span>
+					<span class="courseName">CS 6235 Real Time Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="26" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="27" onclick="toggle_visibility('27','28');">&#9660;</a></span>
+					<span class="courseName"> CS 6238 Secure Computer Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="28" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="29" onclick="toggle_visibility('29','30');">&#9660;</a></span>
+					<span class="courseName">CS 6260 Applied Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="30" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="31" onclick="toggle_visibility('31','32');">&#9660;</a></span>
+					<span class="courseName">CS 6262 Network Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="32" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="35" onclick="toggle_visibility('35','36');">&#9660;</a></span>
+					<span class="courseName">CS 6340 Software Analysis and Testing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="36" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="37" onclick="toggle_visibility('37','38');">&#9660;</a></span>
+					<span class="courseName">CS 6365 Introduction to Enterprise Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="38" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="39" onclick="toggle_visibility('39','40');">&#9660;</a></span>
+					<span class="courseName">CS 6422 Database System Implementation</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="40" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="41" onclick="toggle_visibility('41','42');">&#9660;</a></span>
+					<span class="courseName">CS 6550 Design and Analysis of Algorithms</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="42" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="43" onclick="toggle_visibility('43','44');">&#9660;</a></span>
+					<span class="courseName">CS 6675 Advanced Internet Computing Systems and Applications</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="44" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="45" onclick="toggle_visibility('45','46');">&#9660;</a></span>
+					<span class="courseName">CS 7210 Distributed Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="46" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="47" onclick="toggle_visibility('47','48');">&#9660;</a></span>
+					<span class="courseName">CS 7260 Internetworking Architectures and Protocols</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="48" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="49" onclick="toggle_visibility('49','50');">&#9660;</a></span>
+					<span class="courseName">CS 7270 Networked Applications and Services</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="50" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="51" onclick="toggle_visibility('51','52');">&#9660;</a></span>
+					<span class="courseName">CS 7290 Advanced Topics in Microarchitecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="52" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="53" onclick="toggle_visibility('53','54');">&#9660;</a></span>
+					<span class="courseName">CS 7292 Reliability and Security in Computer Architecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="54" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="55" onclick="toggle_visibility('55','56');">&#9660;</a></span>
+					<span class="courseName">CS 7560 Theory of Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="56" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="57" onclick="toggle_visibility('57','58');">&#9660;</a></span>
+					<span class="courseName">CS 8803-FPL Special Topics: Foundations of Programming Languages</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="58" class="courseInfo">Course Info</div>
+				</div>
 		    </div>
 	    </div>
-	    <div style="clear: both">
+	    <div class="clear">
 			<h2>The remaining terms are past the selected graduation deadline</h2>
 		</div>
-        <h3>Spring 2016</h3>
+		<div>
+		    <span class="toggler"><a id="65" onclick="toggle_visibility('65','66');">&#9660;</a></span>
+		    <span class="semester">Spring 2016</span>
+			<div id="66">
+		    <div class="card">
+					<span class="cardToggler"><a id="63" onclick="toggle_visibility('63', '64');">&#9660;</a></span>
+					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
+					<span class="sticker need">C1</span>
+					<div class="clear"></div>
+				   	<div id="64" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="9" onclick="toggle_visibility('9','10');">&#9660;</a></span>
+					<span class="courseName">CS 6210 Advanced Operating Systems</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="10" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="11" onclick="toggle_visibility('11','12');">&#9660;</a></span>
+					<span class="courseName">CS 6241 Compiler Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="12" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="13" onclick="toggle_visibility('13','14');">&#9660;</a></span>
+					<span class="courseName">CS 6250 Computer Networks</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="14" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="15" onclick="toggle_visibility('15','16');">&#9660;</a></span>
+					<span class="courseName">CS 6290 High-Performance Computer Architecture</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="16" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="17" onclick="toggle_visibility('17','18');">&#9660;</a></span>
+					<span class="courseName">CS 6300 Software Development Process</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="18" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="19" onclick="toggle_visibility('19','20');">&#9660;</a></span>
+					<span class="courseName">CS 6400 Database Systems Concepts and Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="20" class="courseInfo">Course Info</div>
+				</div>
+								<div class="card">
+					<span class="cardToggler"><a id="23" onclick="toggle_visibility('23','24');">&#9660;</a></span>
+					<span class="courseName">CS 6035 Introduction to Information Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="24" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="25" onclick="toggle_visibility('25','26');">&#9660;</a></span>
+					<span class="courseName">CS 6235 Real Time Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="26" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="27" onclick="toggle_visibility('27','28');">&#9660;</a></span>
+					<span class="courseName"> CS 6238 Secure Computer Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="28" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="29" onclick="toggle_visibility('29','30');">&#9660;</a></span>
+					<span class="courseName">CS 6260 Applied Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="30" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="31" onclick="toggle_visibility('31','32');">&#9660;</a></span>
+					<span class="courseName">CS 6262 Network Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="32" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="35" onclick="toggle_visibility('35','36');">&#9660;</a></span>
+					<span class="courseName">CS 6340 Software Analysis and Testing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="36" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="37" onclick="toggle_visibility('37','38');">&#9660;</a></span>
+					<span class="courseName">CS 6365 Introduction to Enterprise Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="38" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="39" onclick="toggle_visibility('39','40');">&#9660;</a></span>
+					<span class="courseName">CS 6422 Database System Implementation</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="40" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="41" onclick="toggle_visibility('41','42');">&#9660;</a></span>
+					<span class="courseName">CS 6550 Design and Analysis of Algorithms</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="42" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="43" onclick="toggle_visibility('43','44');">&#9660;</a></span>
+					<span class="courseName">CS 6675 Advanced Internet Computing Systems and Applications</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="44" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="45" onclick="toggle_visibility('45','46');">&#9660;</a></span>
+					<span class="courseName">CS 7210 Distributed Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="46" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="47" onclick="toggle_visibility('47','48');">&#9660;</a></span>
+					<span class="courseName">CS 7260 Internetworking Architectures and Protocols</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="48" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="49" onclick="toggle_visibility('49','50');">&#9660;</a></span>
+					<span class="courseName">CS 7270 Networked Applications and Services</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="50" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="51" onclick="toggle_visibility('51','52');">&#9660;</a></span>
+					<span class="courseName">CS 7290 Advanced Topics in Microarchitecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="52" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="53" onclick="toggle_visibility('53','54');">&#9660;</a></span>
+					<span class="courseName">CS 7292 Reliability and Security in Computer Architecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="54" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="55" onclick="toggle_visibility('55','56');">&#9660;</a></span>
+					<span class="courseName">CS 7560 Theory of Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="56" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="57" onclick="toggle_visibility('57','58');">&#9660;</a></span>
+					<span class="courseName">CS 8803-FPL Special Topics: Foundations of Programming Languages</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="58" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div>
+		    <span class="toggler"><a id="69" onclick="toggle_visibility('69','70');">&#9660;</a></span>
+		    <span class="semester">Summer 2016</span>
+			<div id="70">
+				<div class="card">
+					<span class="cardToggler"><a id="71" onclick="toggle_visibility('71', '72');">&#9660;</a></span>
+					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
+					<span class="sticker need">C1</span>
+					<div class="clear"></div>
+				   	<div id="72" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div>
+		    <span class="toggler"><a id="73" onclick="toggle_visibility('73','74');">&#9660;</a></span>
+		    <span class="semester">Fall 2016</span>
+			<div id="74">
+				<div class="card">
+					<span class="cardToggler"><a id="63" onclick="toggle_visibility('63', '64');">&#9660;</a></span>
+					<span class="courseName">CS 6505 Computability, Algorithms, and Complexity</span>
+					<span class="sticker need">C1</span>
+					<div class="clear"></div>
+				   	<div id="64" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="9" onclick="toggle_visibility('9','10');">&#9660;</a></span>
+					<span class="courseName">CS 6210 Advanced Operating Systems</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="10" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="11" onclick="toggle_visibility('11','12');">&#9660;</a></span>
+					<span class="courseName">CS 6241 Compiler Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="12" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="13" onclick="toggle_visibility('13','14');">&#9660;</a></span>
+					<span class="courseName">CS 6250 Computer Networks</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="14" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="15" onclick="toggle_visibility('15','16');">&#9660;</a></span>
+					<span class="courseName">CS 6290 High-Performance Computer Architecture</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="16" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="17" onclick="toggle_visibility('17','18');">&#9660;</a></span>
+					<span class="courseName">CS 6300 Software Development Process</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="18" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="19" onclick="toggle_visibility('19','20');">&#9660;</a></span>
+					<span class="courseName">CS 6400 Database Systems Concepts and Design</span>
+					<span class="sticker need">C2</span>
+					<div class="clear"></div>
+				   	<div id="20" class="courseInfo">Course Info</div>
+				</div>
+								<div class="card">
+					<span class="cardToggler"><a id="23" onclick="toggle_visibility('23','24');">&#9660;</a></span>
+					<span class="courseName">CS 6035 Introduction to Information Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="24" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="25" onclick="toggle_visibility('25','26');">&#9660;</a></span>
+					<span class="courseName">CS 6235 Real Time Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="26" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="27" onclick="toggle_visibility('27','28');">&#9660;</a></span>
+					<span class="courseName"> CS 6238 Secure Computer Systems</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="28" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="29" onclick="toggle_visibility('29','30');">&#9660;</a></span>
+					<span class="courseName">CS 6260 Applied Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="30" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="31" onclick="toggle_visibility('31','32');">&#9660;</a></span>
+					<span class="courseName">CS 6262 Network Security</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="32" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="35" onclick="toggle_visibility('35','36');">&#9660;</a></span>
+					<span class="courseName">CS 6340 Software Analysis and Testing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="36" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="37" onclick="toggle_visibility('37','38');">&#9660;</a></span>
+					<span class="courseName">CS 6365 Introduction to Enterprise Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="38" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="39" onclick="toggle_visibility('39','40');">&#9660;</a></span>
+					<span class="courseName">CS 6422 Database System Implementation</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="40" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="41" onclick="toggle_visibility('41','42');">&#9660;</a></span>
+					<span class="courseName">CS 6550 Design and Analysis of Algorithms</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="42" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="43" onclick="toggle_visibility('43','44');">&#9660;</a></span>
+					<span class="courseName">CS 6675 Advanced Internet Computing Systems and Applications</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="44" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="45" onclick="toggle_visibility('45','46');">&#9660;</a></span>
+					<span class="courseName">CS 7210 Distributed Computing</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="46" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="47" onclick="toggle_visibility('47','48');">&#9660;</a></span>
+					<span class="courseName">CS 7260 Internetworking Architectures and Protocols</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="48" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="49" onclick="toggle_visibility('49','50');">&#9660;</a></span>
+					<span class="courseName">CS 7270 Networked Applications and Services</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="50" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="51" onclick="toggle_visibility('51','52');">&#9660;</a></span>
+					<span class="courseName">CS 7290 Advanced Topics in Microarchitecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="52" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="53" onclick="toggle_visibility('53','54');">&#9660;</a></span>
+					<span class="courseName">CS 7292 Reliability and Security in Computer Architecture</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="54" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="55" onclick="toggle_visibility('55','56');">&#9660;</a></span>
+					<span class="courseName">CS 7560 Theory of Cryptography</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="56" class="courseInfo">Course Info</div>
+				</div>
+				<div class="card">
+					<span class="cardToggler"><a id="57" onclick="toggle_visibility('57','58');">&#9660;</a></span>
+					<span class="courseName">CS 8803-FPL Special Topics: Foundations of Programming Languages</span>
+					<span class="sticker need">SE</span>
+					<div class="clear"></div>
+				   	<div id="58" class="courseInfo">Course Info</div>
+				</div>
+		    </div>
+		    </div>
+	    </div>
+	    <div class="clear"></div>
     </div>
 </div>
 
